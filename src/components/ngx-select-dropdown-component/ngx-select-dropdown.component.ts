@@ -47,6 +47,11 @@ export class SelectDropDownComponent implements OnInit, OnChanges, AfterViewInit
   @Output() public change: EventEmitter<any> = new EventEmitter();
 
   /**
+   * change event when value changes to provide user to handle things in change event
+   */
+  @Output() public searchChange: EventEmitter<any> = new EventEmitter();
+
+  /**
    * Event emitted when dropdown is open.
    */
   @Output() public open: EventEmitter<any> = new EventEmitter();
@@ -123,6 +128,7 @@ export class SelectDropDownComponent implements OnInit, OnChanges, AfterViewInit
   }
   public onTouched: any = () => { // empty
   }
+  public onSearchChanged: any = (event: any) => {this.searchChange.emit(event); };
 
   /**
    * click listener for host inside this component i.e
